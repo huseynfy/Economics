@@ -1,0 +1,207 @@
+﻿@model AllViewModel
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Economics NGO" />
+    <meta name="keywords" content="Economics International Economic Research Public Union" />
+    <meta name="keywords" content="Ekonomiks Beynəlxalq İqtisadi Araşdırmalar İctimai Birliyi" />
+    <meta name="description" content="“Ekonomiks” Beynəlxalq İqtisadi Araşdırmalar İctimai Birliyi Azərbaycan Respublikasında Qeyri-Hökumət Təşkilatı olaraq fəaliyyət göstərən “Ekonomiks” Beynəlxalq İqtisadi Araşdırmalar İctimai Birliyi onun sədri,iqtisad elmləri doktoru, professor Fikrət Yusifov tərəfindən yaradılmışdır." />
+    <meta name="keywords" content="Ekonomiks BİAB" />
+    <meta name="keywords" content="Ekonomiks BİAİB">
+    <title>@ViewData["Title"]</title>
+    <link rel="shortcut icon" href="~/img/AppleTouchIconBIAB.png" type="image/x-icon">
+    <link href="~/img/AppleTouchIconBIAB.png" rel="apple-touch-icon" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/style.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WGHE53BPN2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WGHE53BPN2');
+    </script>
+</head>
+<body>
+    <header class="sections">
+        <div class="container">
+            <div class="row rowlogoheader">
+                <div class="col-lg-3 col-md-12 col-sm-12">
+                    <a href="/"><img src="~/img/logo.png" alt="logo" id="logo"></a>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 header">
+                    <ul class="headerul">
+                        <li><a asp-controller="about" asp-action="index">HAQQIMIZDA</a></li>
+                        <li><a asp-controller="press" asp-action="index">MƏTBUAT</a></li>
+                        <li><a asp-controller="project" asp-action="index">LAYİHƏLƏR</a></li>
+                        <li><a asp-controller="interview" asp-action="main">MÜSAHİBƏ</a></li>
+                        <li><a asp-controller="contact" asp-action="index">ƏLAQƏ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-12 col-sm-12 searchheader">
+                    <form asp-controller="search" asp-action="index" method="post">
+                        <button id="searchbtn"><img src="~/img/search.svg" alt=""></button>
+                        <input type="search" name="search" id="search" placeholder="Axtar...">
+                    </form>
+                    <div asp-validation-summary="ModelOnly" class="errormessage"></div>
+                    <a asp-controller="search">
+                        <button id="responsivesearchbutton"><img src="~/img/search.svg" alt=""></button>
+                    </a>
+
+
+                    <!----------Responsive Curtain Menu Start---------->
+                    <div class="mobilecurtainmenu" id="mobilecurtainmenu">
+                        <div class="row">
+                            <div class="col-9"> <a href="/"><img src="~/img/logo.png" alt="logo" id="logocurtainmenu"></a> </div>
+                            <div class="col-3"> <button id="curtainmenubutton"><a href="/search/index"><img src="~/img/search.svg" alt=""></a> </button></div>
+                        </div>
+                        <ul class="menuresponsive">
+                            <li><a asp-controller="about" asp-action="index">HAQQIMIZDA</a></li>
+                            <li><a asp-controller="press" asp-action="index">MƏTBUAT</a></li>
+                            <li><a asp-controller="project" asp-action="index">LAYİHƏLƏR</a></li>
+                            <li><a asp-controller="interview" asp-action="main">MÜSAHİBƏ</a></li>
+                            <li><a asp-controller="contact" asp-action="index">ƏLAQƏ</a></li>
+                            <li><a asp-controller="faq" asp-action="index">SUAL-CAVAB</a></li>
+                        </ul>
+                        <div class="followus1">
+                            <a href="@Model.Contacts.Facebook" target="_blank"><img src="~/img/facebook.svg" alt=""></a>
+                            <a href="@Model.Contacts.Instagram" target="_blank"><img src="~/img/instagram.svg" alt=""></a>
+                            <a href="@Model.Contacts.Linkedin" target="_blank"><img src="~/img/linkedin.svg" alt=""></a>
+                            <a href="@Model.Contacts.Youtube" target="_blank"><img src="~/img/youtube.svg" alt=""></a>
+                        </div>
+
+                        <span class="mobilelogospan1">
+                            <img class="mobilelogo1" src="~/img/logo_icon1.png" width="85px" height="75px" alt="logo">
+                        </span>
+                        <span>
+                            <p class="copyright1">Copyright    ©  @DateTime.Now.Year “Ekonomiks”  |  Bütün hüquqlar qorunur</p>
+                        </span>
+
+                    </div>
+                    <!------------Responsive Curtain Menu End-------------->
+                </div>
+            </div>
+        </div>
+    </header>
+    @RenderBody()
+    @*<div class="documentAnimation" id="loader">
+        <img src="~/img/logo_icon1.png" class="logoAnimation" alt="">
+    </div>*@
+
+    <section class="sections">
+        <!-- <button class="hamburgermenu" id="hamburger"><img src="~/img/hamburger.svg" class="" id="hamburgericon" alt="">
+            <img src="~/img/cancel.svg" id="cancelicon" class="d-none" alt=""></button> -->
+        <button class="hamburgermenu" id="hamburger">
+            <input type="checkbox" name="" id="togglemenuicon">
+            <label for="togglemenuicon" id="labelformenuicon"></label>
+        </button>
+        <!-- <button class="darkmode" id="darkmode"><img src="~/img/sun.svg" alt=""></button>
+        <button class="fontsize" id="fontsize"><img src="~/img/zoom.svg" alt=""></button> -->
+        <button class="backtotop" id="backtotop"><img src="~/img/top.svg" alt=""></button>
+    </section>
+    <footer class="sections responsivefooter">
+        <div class="container-fluid">
+            <div class="row footerrow">
+                <div class="col-lg-3 col-md-6 col-sm-12 footerlogo">
+                    <a href="/"><img src="~/img/logo_icon.png" width="85px" height="75px" alt="logo"></a>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <ul class="ulfooter">
+                        <li><a asp-controller="about" asp-action="index">haqqımızda</a></li>
+                        <li><a asp-controller="press" asp-action="index">mətbuat</a></li>
+                        <li><a asp-controller="project" asp-action="index">layihələr</a></li>
+                        <li><a asp-controller="interview" asp-action="main">müsahibə</a></li>
+                        <li><a asp-controller="contact" asp-action="index">əlaqə</a></li>
+                        <li><a asp-controller="faq" asp-action="index">sual-cavab</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-12 col-sm-12">
+                    <div class="followus">
+                        <a href="@Model.Contacts.Facebook" target="_blank"><img src="~/img/facebook.svg" alt=""></a>
+                        <a href="@Model.Contacts.Instagram" target="_blank"><img src="~/img/instagram.svg" alt=""></a>
+                        <a href="@Model.Contacts.Linkedin" target="_blank"><img src="~/img/linkedin.svg" alt=""></a>
+                        <a href="@Model.Contacts.Youtube" target="_blank"><img src="~/img/youtube.svg" alt=""></a>
+                    </div>
+                </div>
+                <span class="mobilelogospan">
+                    <img class="mobilelogo" src="~/img/logo_icon1.png" width="85px" height="75px" alt="logo">
+                </span>
+
+            </div>
+            <div class="row copyrightrow">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <meta name="keywords" content="Ekonomiks">
+                    <p class="copyright">Copyright    ©  @DateTime.Now.Year “Ekonomiks”  |  Bütün hüquqlar qorunur </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <footer class="sections webfooter">
+        <div class="container-fluid">
+            <div class="row footerrow1">
+                <div class="col-lg-2 col-md-6 col-sm-12">
+                    <ul class="footerul">
+                        <li><a asp-controller="about" asp-action="index">Haqqımızda</a></li>
+                        <li><a asp-controller="press" asp-action="index">Mətbuat</a></li>
+                        <li><a asp-controller="contact" asp-action="index">Əlaqə</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-12">
+                    <ul class="footerul">
+                        <li><a asp-controller="interview" asp-action="main">Müsahibə</a></li>
+                        <li><a asp-controller="project" asp-action="index">Layihələr</a></li>
+                        <li><a asp-controller="faq" asp-action="index">Sual-Cavab</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <ul class="footerul">
+                        <li>
+                            <a href="https://www.google.com/maps/@@40.3794745,49.8438245,18z" target="_blank">
+                                <img src="~/img/location.svg" class="mr-3" alt="">
+                                @Model.Contacts.Address
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="~/img/phone.svg" alt="" class="mr-3">
+                                @Model.Contacts.Phone  <span class="pl-2">@Model.Contacts.CellPhone</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:ekonomiks.ngo@outlook.com" target="_blank">
+                                <img src="~/img/mail.svg" alt="" class="mr-3">
+                                @Model.Contacts.Email
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-12 col-sm-12">
+                    <div class="followusfooternew">
+                        <a href="@Model.Contacts.Facebook" target="_blank"><img src="~/img/facebook.svg" alt=""></a>
+                        <a href="@Model.Contacts.Instagram" target="_blank"><img src="~/img/instagram.svg" alt=""></a>
+                        <a href="@Model.Contacts.Linkedin" target="_blank"><img src="~/img/linkedin.svg" alt=""></a>
+                        <a href="@Model.Contacts.Youtube" target="_blank"><img src="~/img/youtube.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-12 col-sm-12">
+                    <img class="mobilelogo1" src="~/img/logo_icon1.png" width="255" height="255" alt="logo">
+                </div>
+            </div>
+            <div class="row copyrightrow">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <meta name="keywords" content="Ekonomiks">
+                    <p class="copyright">Copyright    ©  @DateTime.Now.Year “Ekonomiks”  |  Bütün hüquqlar qorunur </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/script.js"></script>
+</body>
+
+</html>
+
+@RenderSection("scripts", false)

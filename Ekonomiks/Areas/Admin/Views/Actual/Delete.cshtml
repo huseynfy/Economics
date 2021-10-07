@@ -1,0 +1,23 @@
+﻿@model Actual
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <button class="btnback"><a asp-area="admin" asp-controller="actual" asp-action="index">Geri</a></button>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-5">
+                    <form method="post">
+                        <img src="~/img/@Model.Image" width="350" height="200" />
+                        <p class="deleteheader">@Model.Header</p>
+                        <p class="deletetext">@Html.Raw(Model.Body)</p>
+                        <button type="submit" class="deletebutton mb-5">Sil</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>

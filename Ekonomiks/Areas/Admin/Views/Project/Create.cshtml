@@ -1,0 +1,42 @@
+﻿@model Project
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<section>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <button class="btnback"><a href="/admin/project/index">Geri</a></button>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <form method="post" enctype="multipart/form-data">
+                    <label asp-for="Photo">Yeni Şəkil</label>
+                    <input asp-for="Photo" class="form-control" accept="image/*">
+                    <span asp-validation-for="Photo" class="text-danger"></span>
+
+                    <label asp-for="Header" class="labels">Proyektin adı</label>
+                    <input type="text" asp-for="Header" class="inputs">
+                    <span asp-validation-for="Header" class="text-danger"></span>
+
+                    <label asp-for="Info" class="labels">Proyekt haqqında</label>
+                    <textarea id="textarea" cols="30" rows="10" asp-for="Info"></textarea>
+                    <span asp-validation-for="Info" class="text-danger"></span>
+
+                    <label asp-for="Importance" class="labels">Proyektin əhəmiyyəti</label>
+                    <textarea id="textarea" cols="30" rows="10" asp-for="Importance"></textarea>
+                    <span asp-validation-for="Importance" class="text-danger"></span>
+
+                    <label asp-for="Goal" class="labels">Proyektin məqsədi</label>
+                    <textarea id="textarea" cols="30" rows="10" asp-for="Goal"></textarea>
+                    <span asp-validation-for="Goal" class="text-danger"></span>
+
+                    <label asp-for="DateTime" class="labels">Tarix</label>
+                    <input type="date" asp-for="DateTime" class="inputs">
+                    <button type="submit" class="btnsubmit">Əlavə et</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

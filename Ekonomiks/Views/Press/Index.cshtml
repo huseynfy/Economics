@@ -1,0 +1,237 @@
+﻿@model AllViewModel
+@{
+    ViewData["Title"] = "Mətbuat | Ekonomiks";
+}
+<section class="sections">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-12 pattern">
+            <p class="patterntext">MƏTBUAT</p>
+            <p class="patterntextcrumbs"><a href="/">ANA SƏHİFƏ</a> | <a href="/press/index">MƏTBUAT</a></p>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container">
+        <div class="row interviewrow">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <p class="headers">
+                    @if (Model.News.Where(x => x.Category == "İqtisadiyyat").Count() > 1)
+                    {
+                        <a asp-controller="press" asp-action="more" asp-route-categoryName="İqtisadiyyat" asp-route-heading="İQTİSADİYYAT">
+                            İQTİSADİYYAT
+                            <img src="~/img/arrow.svg" class="viewallicon" alt="">
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="/press/index">İQTİSADİYYAT</a>
+                    }
+                </p>
+            </div>
+            @foreach (var item in Model.News.Where(x => x.Category == "İqtisadiyyat").Take(1))
+            {
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="divbox">
+                        <div class="imagediv">
+                            <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">
+                                <img src="~/img/@item.Image" width="540" height="350" class="pressbigimage" alt="@item.Header">
+                            </a>
+                        </div>
+                        <div class="boxpress">
+                            <p class="boxcategorynews">@item.Category</p>
+                            <p class="infoabouttextpress">
+                                @if (item.Header.Length > 40)
+                                {
+                                    <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim().Substring(0, 50)...</a>
+
+                                }
+                                else
+                                {
+                                    <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim()</a>
+                                }
+                            </p>
+                            <p class="datetime">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                            <p class="readtime"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="container">
+                    <div class="row">
+                        @foreach (var item in Model.News.Where(x => x.Category == "İqtisadiyyat").Skip(1).Take(3))
+                        {
+                            <div class="presssmalldiv">
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-6 col-md-6">
+                                        <div class="imagediv">
+                                            <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">
+                                                <img src="~/img/@item.Image" class="presssmallimage" width="270" height="167" alt="@item.Header">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6 col-md-6 smallpressdiv">
+                                        <p class="actualnewscategory">@item.Category</p>
+                                        <p class="actualnewsinfo">
+                                            @if (item.Header.Length > 40)
+                                            {
+                                                <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim().Substring(0, 50)...</a>
+
+                                            }
+                                            else
+                                            {
+                                                <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim()</a>
+                                            }
+                                        </p>
+                                        <p class="datetimeactual">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                                        <p class="readtimeactual"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container">
+        <div class="row interviewrow">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <p class="headers">
+                    @if (Model.News.Where(x => x.Category == "Siyasət").Count() > 1)
+                    {
+                        <a asp-controller="press" asp-action="more" asp-route-categoryName="Siyasət" asp-route-heading="SİYASƏT">
+                            SİYASƏT
+                            <img src="~/img/arrow.svg" class="viewallicon" alt="">
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="/press/index">SİYASƏT</a>
+                    }
+                </p>
+            </div>
+            @foreach (var item in Model.News.Where(x => x.Category == "Siyasət").Take(1))
+            {
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="divbox">
+                        <div class="imagediv">
+                            <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">
+                                <img src="~/img/@item.Image" width="540" height="350" class="pressbigimage" alt="@item.Header">
+                            </a>
+                        </div>
+                        <div class="boxpress">
+                            <p class="boxcategorynews">@item.Category</p>
+                            <p class="infoabouttextpress">
+                                @if (item.Header.Length > 40)
+                                {
+                                    <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim().Substring(0, 50)...</a>
+
+                                }
+                                else
+                                {
+                                    <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim()</a>
+                                }
+                            </p>
+                            <p class="datetime">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                            <p class="readtime"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="container">
+                    <div class="row">
+                        @foreach (var item in Model.News.Where(x => x.Category == "Siyasət").Skip(1).Take(3))
+                        {
+                            <div class="presssmalldiv">
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-6 col-md-6">
+                                        <div class="imagediv">
+                                            <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">
+                                                <img src="~/img/@item.Image" class="presssmallimage" width="270" height="167" alt="@item.Header">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6 col-md-6 smallpressdiv">
+                                        <p class="actualnewscategory">@item.Category</p>
+                                        <p class="actualnewsinfo">
+                                            @if (item.Header.Length > 40)
+                                            {
+                                                <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim().Substring(0, 50)...</a>
+
+                                            }
+                                            else
+                                            {
+                                                <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim()</a>
+                                            }
+                                        </p>
+                                        <p class="datetimeactual">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                                        <p class="readtimeactual"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container">
+        <div class="row interviewrow">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <p class="headers">
+                    @if (Model.News.Where(x => x.Category == "Sosial").Count() > 1)
+                    {
+                        <a asp-controller="press" asp-action="more" asp-route-categoryName="Sosial" asp-route-heading="SOSİAL MƏSƏLƏLƏR">
+                            SOSİAL MƏSƏLƏLƏR
+                            <img src="~/img/arrow.svg" class="viewallicon" alt="">
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="/press/index">SOSİAL MƏSƏLƏLƏR</a>
+                    }
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.News.Where(x => x.Category == "Sosial").Take(3))
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="imagediv">
+                        <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">
+                            <img class="latestnewsimage" src="~/img/@item.Image" width="370" height="200" alt="@item.Header">
+                        </a>
+                    </div>
+                    <div class="boxnews">
+                        <p class="boxcategorynews">@item.Category</p>
+                        <p class="infoabouttext">
+                            @if (item.Header.Length > 40)
+                            {
+                                <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim().Substring(0, 50)...</a>
+
+                            }
+                            else
+                            {
+                                <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim()</a>
+                            }
+                        </p>
+                        <p class="datetime">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                        <p class="readtime"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

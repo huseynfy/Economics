@@ -1,0 +1,72 @@
+﻿@model AllViewModel
+@{
+    ViewData["Title"] = "Axtarış | Ekonomiks";
+}
+<section class="sections">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-12 pattern">
+            <p class="patterntext">AXTARIŞ</p>
+            <p class="patterntextcrumbs"><a href="/">ANA SƏHİFƏ</a> | <a href="/search/index">AXTARIŞ</a></p>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <form asp-controller="search" asp-action="index" method="post">
+                    <input type="search" name="search" class="searchpageinput">
+                    <button type="submit" class="searchbuttonforsearchdetail"><img src="~/img/search.svg" alt=""></button>
+                </form>
+                <div asp-validation-summary="ModelOnly" class="errormessage1"></div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-between">
+                @if (ViewBag.Search != null && Model.News.Where(x => x.Header.Contains(ViewBag.Search)) != null)
+                {
+                    <p class="searchresults">@(Model.News.Count() + Model.Interviews.Count()) nəticə tapıldı</p>
+                    <div class="searchfilters"> <a href="" class="activesearchfilter">son xəbər   </a>| 
+                <a href="" class="nonactivesearchfilter">əlaqəli xəbər</a> </div>
+                }
+                else
+                {
+                    <p class="searchresults">Axtarış</p>
+                }
+
+            </div>
+        </div>
+        @if (ViewBag.Search != null)
+        {
+    <div class="searchresultsalltogether">
+
+        @foreach (var item in Model.News)
+        {
+            <div class="col-lg-12 col-md-12 col-sm-12 allsearchresults">
+                <p class="searchresulthead">
+                    <a asp-controller="news" asp-action="index" asp-route-Id="@item.Id">@item.Header </a>
+                </p>
+                <p class="searhcresultbody">
+                    <a asp-controller="news" asp-action="index" asp-route-Id="@item.Id">@Html.Raw(item.Body.Substring(0, 100))... </a>
+                    <a asp-controller="news" asp-action="index" asp-route-Id="@item.Id" class="readmore">Read more</a>
+                </p>
+                <p class="datetimeforsearchresults">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                <p class="readtimeforsearchresults"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+            </div>
+        }
+        @foreach (var item in Model.Interviews)
+        {
+            <div class="col-lg-12 col-md-12 col-sm-12 allsearchresults">
+                <p class="searchresulthead">
+                    <a asp-controller="interview" asp-action="index" asp-route-Id="@item.Id">@item.Header </a>
+                </p>
+                <p class="searhcresultbody">
+                    <a asp-controller="interview" asp-action="index" asp-route-Id="@item.Id">@Html.Raw(item.Body.Substring(0, 100))... </a>
+                    <a asp-controller="interview" asp-action="index" asp-route-Id="@item.Id" class="readmore">Read more</a>
+                </p>
+                <p class="datetimeforsearchresults">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                <p class="readtimeforsearchresults"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+            </div>
+        }
+    </div>
+        }
+    </div>
+</section>

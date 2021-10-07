@@ -1,0 +1,21 @@
+﻿@model Message
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <button class="btnback"><a asp-area="admin" asp-controller="message" asp-action="index">Geri</a></button>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <form method="post">
+                    <p class="deleteheader">@Model.FirstName</p>
+                    <p class="deletetext">@Html.Raw(Model.Post)</p>
+                    <button type="submit" class="deletebutton">Sil</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

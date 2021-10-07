@@ -1,0 +1,269 @@
+﻿@model AllViewModel
+@{
+    ViewData["Title"] = "Ana Səhifə | Ekonomiks";
+}
+<section class="sections">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            @foreach (var item in Model.Actuals.Take(1))
+            {
+                <a asp-controller="actual" asp-action="index" asp-route-id="@item.Id">
+                    <img src="~/img/@item.Image" id="mainimage" alt="@item.Header">
+                    <p id="textformainimage">@item.Header.Trim()</p>
+                    <p id="textformainimage1">@item.Body.Trim().Substring(0, 140)...</p>
+                </a>
+            }
+
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container">
+        <div class="row newsrow">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <p class="headers">
+                <a asp-controller="news" asp-action="more">SON XƏBƏRLƏR<img src="~/img/arrow.svg" class="viewallicon" alt=""></a></p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.News.Take(3))
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="imagediv">
+                        <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">
+                            <img class="latestnewsimage" src="~/img/@item.Image" width="370" height="200" alt="@item.Header">
+                        </a>
+                    </div>
+                    <div class="boxnews">
+                            <p class="boxcategorynews">@item.Category</p>
+                            <p class="infoabouttext">
+                                @if (item.Header.Length > 40)
+                                {
+                                    <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim().Substring(0, 50)...</a>
+
+                                }
+                                else
+                                {
+                                    <a asp-controller="news" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim()</a>
+                                }
+                            </p>
+                            <p class="datetime">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                            <p class="readtime"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container">
+        <div class="row interviewrow">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <p class="headers">
+                <a asp-controller="interview" asp-action="more"> MÜSAHİBƏLƏR
+                    <img src="~/img/arrow.svg" class="viewallicon" alt=""></a></p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.Interviews.Take(3))
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="imagediv">
+                        <a asp-controller="interview" asp-action="index" asp-route-id="@item.Id">
+                            <img class="latestnewsimage" src="~/img/@item.Image" width="370" height="200" alt="@item.Header">
+                        </a>
+                    </div>
+                    <div class="boxnews">
+                        <p class="boxcategorynews">@item.Category</p>
+                        <p class="infoabouttext">
+                            @if (item.Header.Length > 40)
+                            {
+                                <a asp-controller="interview" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim().Substring(0, 50)...</a>
+
+                            }
+                            else
+                            {
+                                <a asp-controller="interview" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim()</a>
+                            }
+                        </p>
+                        <p class="datetime">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                        <p class="readtime"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container">
+        <div class="row interviewrow">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <p class="headers"><a asp-controller="actual" asp-action="more"> GÜNDƏM
+                    <img src="~/img/arrow.svg" class="viewallicon" alt=""></a></p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.Actuals.Skip(1).Take(1))
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12 bigboxactual">
+                    <div class="imagediv">
+                        <a asp-controller="actual" asp-action="index" asp-route-id="@item.Id">
+                        <img src="~/img/@item.Image" height="346" width="370" class="actualimage" alt="@item.Header"></a>
+                    </div>
+                    <div class="boxnews">
+                        <p class="boxcategorynews">@item.Category</p>
+                        <p class="infoabouttext">
+                            @if (item.Header.Length > 40)
+                            {
+                                <a asp-controller="actual" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim().Substring(0, 50)...</a>
+
+                            }
+                            else
+                            {
+                                <a asp-controller="actual" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim()</a>
+                            }
+                        </p>
+                        <p class="datetime">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                        <p class="readtime"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+                    </div>
+                </div>
+            }
+
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <div class="actualbox">
+                    <div class="container">
+                        @foreach (var item in Model.Actuals.Skip(2).Take(3))
+                        {
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="imagediv">
+                                        <a asp-controller="actual" asp-action="index" asp-route-id="@item.Id">
+                                        <img src="~/img/@item.Image" width="166" height="128" class="actualimagesmall" alt="@item.Header"></a>
+                                    </div>
+                                </div>
+                                <div class="col-6 actualnewssmall">
+                                    <p class="actualnewscategory">@item.Category</p>
+                                    <p class="actualnewsinfo">
+                                        @if (item.Header.Length > 40)
+                                        {
+                                            <a asp-controller="actual" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim().Substring(0, 50)...</a>
+
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="actual" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim()</a>
+                                        }
+                                    </p>
+                                    <p class="datetimeactual">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                                    <p class="readtimeactual"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="actualboxsmall">
+                    <div class="container">
+                        @foreach (var item in Model.Actuals.Skip(5).Take(1))
+                        {
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="actualnewscategorysmall">@item.Category</p>
+                                    <p class="actualnewsinfosmall">
+                                        @if (item.Header.Length > 40)
+                                        {
+                                            <a asp-controller="actual" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim().Substring(0, 50)...</a>
+
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="actual" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim()</a>
+                                        }
+                                    </p>
+                                    <p class="datetimeactual">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                                    <p class="readtimeactual"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+                                </div>
+                                <div class="lineactual"></div>
+                            </div>
+                        }
+                        @foreach (var item in Model.Actuals.Skip(6).Take(1))
+                        {
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="actualnewscategorysmall">@item.Category</p>
+                                    <p class="actualnewsinfosmall">
+                                        @if (item.Header.Length > 40)
+                                        {
+                                            <a asp-controller="actual" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim().Substring(0, 50)...</a>
+
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="actual" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim()</a>
+                                        }
+                                    </p>
+                                    <p class="datetimeactual">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                                    <p class="readtimeactual"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+                                </div>
+                                <div class="lineactual"></div>
+                            </div>
+                        }
+                        @foreach (var item in Model.Actuals.Skip(7).Take(1))
+                        {
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="actualnewscategorysmall">@item.Category</p>
+                                    <p class="actualnewsinfosmall">
+                                        @if (item.Header.Length > 40)
+                                        {
+                                            <a asp-controller="actual" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim().Substring(0, 50)...</a>
+
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="actual" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim()</a>
+                                        }
+                                    </p>
+                                    <p class="datetimeactual">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                                    <p class="readtimeactual"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container-fluid projectpatterncontainer">
+        <div class="row projectpatternrow">
+            <div class="col-12">
+                <div class="container interviewrow">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <p class="headerproject"><a asp-controller="project" asp-action="index"> 
+                            LAYİHƏLƏR<img src="~/img/arrow_white.svg" class="viewallicon" alt=""></a></p>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        @foreach (var item in Model.Projects.Take(5))
+                        {
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <p class="projectnumber">0@(item.Id) <span class="projectnumberunderline">__</span></p>
+                            <a class="projecttitle" asp-controller="project" asp-action="detail" asp-route-id="@item.Id"> 
+                            @item.Header</a>
+                        </div>
+                        }
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,35 @@
+﻿@model Contact
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <button class="btnback"><a href="/admin/contact/index">Geri</a></button>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <form method="post">
+                        <label asp-for="Phone" class="labels">Mobil Telefon</label>
+                        <input type="text" asp-for="Phone" class="inputs">
+                        <label asp-for="CellPhone" class="labels">Şəhər telefonu</label>
+                        <input type="text" asp-for="CellPhone" class="inputs">
+                        <label asp-for="Facebook" class="labels">Facebook</label>
+                        <input type="text" asp-for="Facebook" class="inputs">
+                        <label asp-for="Instagram" class="labels">Instagram</label>
+                        <input type="text" asp-for="Instagram" class="inputs">
+                        <label asp-for="Linkedin" class="labels">Linkedin</label>
+                        <input type="text" asp-for="Linkedin" class="inputs">
+                        <label asp-for="Youtube" class="labels">Youtube</label>
+                        <input type="text" asp-for="Youtube" class="inputs">
+                        <label asp-for="Address" class="labels">Adres</label>
+                        <input type="text" asp-for="Address" class="inputs">
+                        <label asp-for="Email" class="labels">Email</label>
+                        <input type="text" asp-for="Email" class="inputs">
+                        <button type="submit" class="btnsubmit">Əlavə et</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>

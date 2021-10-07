@@ -1,0 +1,48 @@
+﻿@model Contact
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+    <section>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-lg-12 col-sm-12 col-md-12">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Mobil Telefon</th>
+                                <th scope="col">Şəhər telefonu</th>
+                                <th scope="col">Adres</th>
+                                <th scope="col">Facebook</th>
+                                <th scope="col">İnstagram</th>
+                                <th scope="col">Linkedin</th>
+                                <th scope="col">Youtube</th>
+                                <th scope="col">Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>@Model.Phone</td>
+                                <td>@Model.CellPhone</td>
+                                <td>@Model.Address</td>
+                                <td>@Model.Facebook</td>
+                                <td>@Model.Instagram</td>
+                                <td>@Model.Linkedin</td>
+                                <td>@Model.Youtube</td>
+                                <td>@Model.Email</td>
+                                <td>
+                                    <button class="btnupdate">
+                                        <a asp-area="admin" asp-controller="contact" asp-action="update" asp-route-id="@Model.Id">
+                                            <img src="~/admin/img/edit.svg" alt="">
+                                        </a>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>

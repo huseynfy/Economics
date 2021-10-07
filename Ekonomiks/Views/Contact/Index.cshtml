@@ -1,0 +1,105 @@
+﻿@model AllViewModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Əlaqə | Ekonomiks";
+}
+<section class="sections">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-12 pattern">
+            <p class="patterntext">ƏLAQƏ</p>
+            <p class="patterntextcrumbs"><a href="/">ANA SƏHİFƏ</a> | <a href="/contact/index">ƏLAQƏ</a></p>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container">
+        <div class="row contactrow">
+            <div class="col-lg-4 col-md-12 col-sm-12 contactdetaildiv">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <p class="contactpageinfoheader">Əlaqə məlumatı</p>
+                            <p class="contactpageinfounderline">_____</p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-3">
+                            <img src="~/img/phone.svg" height="20" width="20" alt="" class="phoneiconcontact iconcontact">
+                        </div>
+                        <div class="col-lg-10 col-md-9 col-sm-9">
+                            <p class="contactphone">@Model.Contacts.CellPhone</p>
+                            <p class="contactphone1">@Model.Contacts.Phone</p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-3">
+                            <img src="~/img/mail.svg" height="20" width="20" alt="" class="iconcontact">
+                        </div>
+                        <div class="col-lg-10 col-md-9 col-sm-9">
+                            <p class="contactmailaddress">@Model.Contacts.Email</p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-3">
+                            <img src="~/img/location.svg" height="20" width="20" alt="" class="iconcontact">
+                        </div>
+                        <div class="col-lg-10 col-md-9 col-sm-9">
+                            <p class="contactmailaddress">@Model.Contacts.Address</p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-3 shareiconcontact iconcontact">
+                            <img src="~/img/share.svg" height="20" width="20" alt="">
+                        </div>
+                        <div class="col-lg-10 col-md-9 col-sm-9 socialcontact">
+                            <a href="@Model.Contacts.Facebook" target="_blank"><img src="~/img/facebook.svg" alt=""></a>
+                            <a href="@Model.Contacts.Instagram" target="_blank"><img src="~/img/instagram.svg" alt=""></a>
+                            <a href="@Model.Contacts.Linkedin" target="_blank"><img src="~/img/linkedin.svg" alt=""></a>
+                            <a href="@Model.Contacts.Youtube" target="_blank"><img src="~/img/youtube.svg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-12 col-sm-12 contactformdiv">
+                @if (TempData["Success"] != null)
+                {
+                    <p class="alert alert-success mb-5">@TempData["Success"]</p>
+                }
+                @if (TempData["UnSuccess"] != null)
+                {
+                    <p class="alert alert-danger mb-5">@TempData["UnSuccess"]</p>
+                }
+                <form asp-controller="contact" asp-action="index" method="post" class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <p class="inputslabel">AD <span class="inputstar">*</span></p>
+                        <input type="text" name="FirstName" class="inputs">
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <p class="inputslabel">SOYAD <span class="inputstar">*</span></p>
+                        <input type="text" name="LastName" class="inputs">
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <p class="inputslabel">TELEFON <span class="inputstar">*</span></p>
+                        <input type="text" name="Phone" class="inputs">
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <p class="inputslabel">EMAIL</p>
+                        <input type="email" name="Email" class="inputs" placeholder="text@example.com">
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <p class="inputslabel">MƏKTUB <span class="inputstar">*</span></p>
+                        <textarea name="Post" class="textarea" @*asp-validation-for="Post"*@></textarea>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <button type="submit" class="btnsend">GÖNDƏR</button>
+                    </div>
+                    <input type="hidden" name="Date" value="@DateTime.Now">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div id="map"></div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc_qDY9OOy4zJo3vBZ1_nPlloZn08eDro&callback=initMap"></script>
+}

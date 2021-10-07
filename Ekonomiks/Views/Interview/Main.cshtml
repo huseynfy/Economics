@@ -1,0 +1,93 @@
+﻿@model AllViewModel
+@{
+    ViewData["Title"] = "Müsahibə | Ekonomiks";
+}
+<section class="sections">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-12 pattern">
+            <p class="patterntext">MÜSAHİBƏ</p>
+            <p class="patterntextcrumbs"><a href="/">ANA SƏHİFƏ</a> | <a href="/interview/main">MÜSAHİBƏ</a></p>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container">
+        @foreach (var item in Model.Interviews.Take(1))
+        {
+            <div class="row interviewsrow">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <div class="imagediv">
+                        <a asp-controller="interview" asp-action="index" asp-route-id="@item.Id">
+                            <img src="~/img/@item.Image" alt="@item.Header" width="610" height="378" class="interviewspagemainimage">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12 interviewspagebigdiv">
+
+                    <p class="interviewnewscategory">@item.Category</p>
+                    <p class="interviewhead">
+                        @if (item.Header.Length > 40)
+                        {
+                            <a asp-controller="interview" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim().Substring(0, 50)...</a>
+
+                        }
+                        else
+                        {
+                            <a asp-controller="interview" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim()</a>
+                        }
+                    </p>
+                    <p class="interviewbody">
+                        <a asp-controller="interview" asp-action="index" asp-route-id="@item.Id" style="color:#363636;">
+                            @Html.Raw(item.Body.Substring(0, 300))...
+                        </a>
+                    </p>
+                    <p class="datetimeactual">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                    <p class="readtimeactual"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+                </div>
+            </div>
+        }
+
+    </div>
+</section>
+<section class="sections">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-between">
+                <p class="interviewsheader">MÜSAHİBƏLƏR</p>
+                <div class="interviewfilters">
+                    <a href="" class="activesearchfilter">son xəbər   </a>| <a href="" class="nonactivesearchfilter">gündəm</a>
+                </div>
+            </div>
+            @foreach (var item in Model.Interviews.Skip(1))
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12 interviewspagebox">
+                    <div class="imagediv">
+                        <a asp-controller="interview" asp-action="index" asp-route-id="@item.Id">
+                            <img class="latestnewsimage" src="~/img/@item.Image" width="370" height="200" alt="@item.Header">
+                        </a>
+                    </div>
+                    <div class="boxnews">
+                        <p class="boxcategorynews">@item.Category</p>
+                        <p class="infoabouttext">
+                            @if (item.Header.Length > 40)
+                            {
+                                <a asp-controller="interview" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim().Substring(0, 50)...</a>
+
+                            }
+                            else
+                            {
+                                <a asp-controller="interview" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim()</a>
+                            }
+                        </p>
+                        <p class="datetime">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                        <p class="readtime"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+                    </div>
+                </div>
+            }
+
+            @*<div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                    <a href="#"><img src="~/img/reload.svg" class="img-fluid loadmore" alt="loadmore"></a>
+                </div>*@
+        </div>
+    </div>
+</section>

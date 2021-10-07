@@ -1,0 +1,32 @@
+﻿@model About
+@{
+    Layout = "_LayoutAdmin";
+}
+<section>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-lg-12 col-sm-12 col-md-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Haqqımızda</th>
+                            <th scope="col">Görülən işlər</th>
+                            <th scope="col">Düzəliş et</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>@Model.AboutUs</td>
+                            <td>@Model.WhatWasDone</td>
+                            <td><button class="btnupdate">
+                                <a asp-area="admin" asp-controller="about" asp-action="update" asp-route-id="@Model.Id">
+                                <img src="~/admin/img/edit.svg" alt=""></a></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,45 @@
+﻿@model AllViewModel
+@{
+    ViewData["Title"] = "Layihələr | Ekonomiks";
+}
+<section class="sections">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-12 pattern">
+            <p class="patterntext">LAYİHƏLƏR</p>
+            <p class="patterntextcrumbs"><a href="/">ANA SƏHİFƏ</a> | <a href="/project/index">LAYİHƏLƏR</a></p>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container-fluid projectscontainer">
+        <div class="row">
+            @foreach (var item in Model.Projects)
+            {
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-6">
+                    <div class="project">
+                        <p class="projectnumber1">0@(item.Id) <span class="projectnumberunderline">__</span> </p>
+                        <a asp-controller="project" asp-action="detail" asp-route-id="@item.Id">
+                            <img src="~/img/@item.Image" alt="@item.Header" width="470" height="250" class="projectimages">
+                        </a>
+                        <p class="titleofproject">
+                            <a asp-controller="project" asp-action="detail" asp-route-id="@item.Id">@item.Header</a>
+                        </p>
+                        <p class="bodyofproject">
+                            @if (item.Info.Length > 40)
+                            {
+                                <a asp-controller="project" asp-action="index" asp-route-id="@item.Id">@item.Info.Trim().Substring(0, 80)...</a>
+
+                            }
+                            else
+                            {
+                                <a asp-controller="project" asp-action="index" asp-route-id="@item.Id">@item.Info.Trim()</a>
+                            }
+                            <a asp-controller="project" asp-action="detail" asp-route-id="@item.Id" class="readmore">Read more</a>
+                        </p>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

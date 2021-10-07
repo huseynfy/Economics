@@ -1,0 +1,262 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.rowheader{
+    height: 120px;
+    background-color: #204c86;
+}
+.btnhome {
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    width: 100px;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: -10px;
+    color: #204c86;
+    text-decoration-line: none;
+}
+.btnlogout {
+    background-color: #c52f2f;
+    border-radius: 5px;
+    border: none;
+    width: 100px;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: -10px;
+    color: #ffffff;
+    text-decoration-line: none;
+}
+.welcome{
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.welcome a{
+    font-size: 22px;
+    font-family: sans-serif;
+    color: #ffffff;
+    text-decoration-line: none;
+    cursor: pointer;
+}
+.ulmenu{
+    display: flex;
+    margin-top: 30px;
+}
+.ulmenu li{
+    padding-left: 20px;
+    list-style-type: none;
+    padding-top: 10px;
+}
+.firstli{
+    padding-left:0px !important;
+    margin-left:-20px;
+}
+.ulmenu a {
+    color: #ffffff;
+    text-decoration-line: none;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.ulmenu a:hover{
+    text-decoration-line: underline;
+    transition: decoration-line 0.5s;
+}
+.box{
+    height: 360px;
+    width: 350px;
+    border: 3px solid #204c86;
+    border-radius: 50px;
+    margin-top: 50px;
+}
+.boximage{
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+}
+.boxtext{
+    margin-top: 50px;
+}
+.boxtext a{
+    color: #204c86;
+    font-size: 20px;
+    font-family: sans-serif;
+    text-decoration-line: none;
+    padding: 10px;
+}
+.boxbtn{
+    background-color: #204c86;
+    border: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+.boxbtn a {
+    font-size:18px;
+    font-weight:600;
+    color: #ffffff;
+}
+.backtotop {
+    width: 54px;
+    height: 51px;
+    border: 0.5px solid #204c86;
+    background-color: #ffffff;
+    float: right;
+    display: block;
+    position: fixed;
+    top: 600px;
+    right: 0;
+    color: #204c86;
+    border-radius: 5px 0 0 5px;
+    z-index: 9;
+}
+/*---------Detail Page Start-----------*/
+.btnadd{
+    color: #ffffff;
+    background-color: #204c86;
+    border: none;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    font-family: sans-serif;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+.btnadd a:hover{
+    color:white;
+    text-decoration-line:underline;
+}
+.btnupdate{
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-radius: 5px;
+}
+.btnupdate img{
+    width: 20px;
+    height: 25px;
+}
+.btndelete{
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-radius: 5px;
+}
+.btndelete img{
+    width: 20px;
+    height: 25px;
+}
+/*---------Detail Page End-----------*/
+
+
+/*---------Add Page Start-----------*/
+
+.inputfile{
+    content: 'Şəkil seçin';
+    display: block;
+    border: solid 1px #204c86;
+    background-color: #ffffff;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.inputs{
+    display: block;
+    border: solid 1px #204c86;
+    background-color: #ffffff;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    min-height: 50px;
+    padding: 10px;
+}
+.labels{
+    margin-top: 50px;
+
+}
+#textarea{
+    display: block;
+    border: solid 1px #204c86;
+    background-color: #ffffff;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    min-height: 50px;
+    padding: 10px;
+}
+.btnsubmit{
+    color: #ffffff;
+    background-color: #204c86;
+    border: none;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    font-family: sans-serif;
+    margin-top: 50px;
+    float: right;
+    margin-bottom: 100px;
+    font-size: 18px;
+}
+.btnback{
+    background-color: #204c86;
+    border: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    float: left;
+    margin-top: 50px;
+}
+.btnback a {
+    color: #ffffff;
+    text-decoration-line: none;
+}
+    .btnback a:hover {
+        color: #ffffff;
+        text-decoration-line: none;
+    }
+a{
+    font-size: 18px; 
+    font-family: sans-serif;
+    color: #ffffff;
+    text-decoration-line: none;
+}
+
+/*---------Add Page End-----------*/
+
+/*---------Delete Page Start-----------*/
+
+.imagedelete{
+    width: 400px;
+    height: 100px;
+    margin-top: 50px;
+}
+.deleteheader{
+    padding: 30px 10px 0px 50px;
+    font-family: sans-serif;
+    font-size: 24px;
+}
+.deletetext{
+    padding: 50px;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+.deletebutton{
+    background-color: #c52f2f;
+    border: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    float: right;
+    margin-top: 50px;
+    margin-right: 50px;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+
+/*---------Delete Page End-----------*/

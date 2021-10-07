@@ -1,0 +1,65 @@
+﻿@model AllViewModel
+@{
+    ViewData["Title"] = Model.GetProject.Header;
+}
+<section class="sections">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-12 pattern">
+            <p class="patterntext">LAYİHƏLƏR</p>
+            <p class="patterntextcrumbs"><a href="/">ANA SƏHİFƏ</a> | <a href="/project/index">LAYİHƏLƏR</a></p>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container projectdetailcontainer">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <h2 class="projecthead">@Model.GetProject.Header</h2>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <img src="~/img/@Model.GetProject.Image" width="600" height="316" class="projectdetailimage rounded" alt="@Model.GetProject.Header">
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                @if (Model.GetProject.Info != null)
+                {
+                    <p class="projectinfo">Layihənin ideyası və qısa məzmunu</p>
+                    <p class="projectbody">@Model.GetProject.Info </p>
+                }
+                @if (Model.GetProject.Importance != null)
+                {
+                    <p class="projectinfo">Mövzunun ictimai əhəmiyyəti və aktuallığı </p>
+                    <p class="projectbody">@Model.GetProject.Importance</p>
+                }
+                @if (Model.GetProject.Goal != null)
+                {
+                    <p class="projectinfo">Layihənin məqsədi və qarşıya qoyulan vəzifələr</p>
+                    <p class="projectbody">@Model.GetProject.Goal</p>
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <a href="/project/index">
+                    <p class="moreprojects">DİGƏR LAYİHƏLƏR <img src="~/img/arrow.svg" class="viewallicon" alt="arrow"></p>
+                </a>
+            </div>
+            @foreach (var item in Model.Projects.Take(3))
+            {
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <a asp-controller="project" asp-action="detail" asp-route-id="@item.Id">
+                        <img src="~/img/@item.Image" alt="@item.Header" width="370" height="195" class="moreprojectsimg rounded img-fluid">
+                    </a>
+                    <p class="moreprojectshead">
+                        <a asp-controller="project" asp-action="detail" asp-route-id="@item.Id">@item.Header</a>
+                    </p>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

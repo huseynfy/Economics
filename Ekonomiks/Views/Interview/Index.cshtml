@@ -1,0 +1,99 @@
+﻿@model AllViewModel
+@{
+    ViewData["Title"] = Model.GetInterview.Header;
+}
+<section class="sections">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-12 pattern">
+            <p class="patterntext">MÜSAHİBƏ</p>
+            <p class="patterntextcrumbs"> <a href="/">ANA SƏHİFƏ </a>|<a href="/interview/main"> MÜSAHİBƏ</a></p>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container">
+        <div class="row newsdetailrow">
+            <div class="col-lg-12 col-sm-12 col-md-12">
+                <p class="newsdetailcategory">@Model.GetInterview.Category</p>
+                <h1 class="newsheader">
+                    @Model.GetInterview.Header
+                </h1>
+                <img src="~/img/@Model.GetInterview.Image" class="newsdetailimage" alt="@Model.GetInterview.Header">
+                <div class="justify-content-between">
+                    <span>
+                        <p class="datetimeforsearchresults">@Model.GetInterview.DateTime.ToString("dd/MM/yyyy")</p>
+                        <p class="readtime"><img src="~/img/clock.svg" alt=""> @Model.GetInterview.ReadTime dəq. oxu</p>
+                    </span>
+                    <span>
+                        <ul class="newsshare">
+                            <div class="fb-share-button" data-href="http://ekonomiks.az/interview/index/@Model.GetInterview.Id" data-layout="button" data-size="small">
+                                <a target="_blank"
+                                   href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fekonomiks.az%2F&amp;src=sdkpreparse"
+                                   class="fb-xfbml-parse-ignore"></a>
+                            </div>
+                            <li>
+                                <a href="whatsapp://send?text=@Model.GetInterview.Header http://ekonomiks.az/interview/index/@Model.GetInterview.Id"
+                                   data-action="share/whatsapp/share" target="_blank"><img src="~/img/whatsapp.svg" alt=""></a>
+                            </li>
+                            <li><a href="mailto:?subject=@Model.GetInterview.Header&body=http://ekonomiks.az/interview/index/@Model.GetInterview.Id">
+                                <img src="~/img/email.svg" alt=""></a></li>
+                        </ul>
+                    </span>
+
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <p class="newsdetailbody">
+                    @Html.Raw(Model.GetInterview.Body)
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container">
+        <div class="row interviewrow">
+            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                <p class="headers">
+                    <a href="/interview/more">ƏLAQƏLİ MƏQALƏLƏR<img src="~/img/arrow.svg" class="viewallicon" alt=""></a>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.Interviews.Take(3))
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="divbox">
+                        <div class="imagediv">
+                            <a asp-controller="interview" asp-action="index" asp-route-id="@item.Id">
+                                <img class="latestnewsimage" src="~/img/@item.Image" width="370" height="200" alt="@item.Header">
+                            </a>
+                        </div>
+                        <div class="boxnews">
+                            <p class="boxcategorynews">@item.Category</p>
+                            <p class="infoabouttext">
+                                @if (item.Header.Length > 40)
+                                {
+                                    <a asp-controller="interview" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim().Substring(0, 50)...</a>
+
+                                }
+                                else
+                                {
+                                    <a asp-controller="interview" asp-action="index" asp-route-id="@item.Id">@item.Header.Trim()</a>
+                                }
+                            </p>
+                            <p class="datetime">@item.DateTime.ToString("dd/MM/yyyy")</p>
+                            <p class="readtime"><img src="~/img/clock.svg" alt=""> @item.ReadTime dəq. oxu</p>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+<div id="fb-root"></div>
+@section scripts{
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" nonce="Us8xAAK8"></script>
+}

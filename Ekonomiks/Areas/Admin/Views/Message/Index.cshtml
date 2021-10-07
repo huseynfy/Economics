@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Message>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+    <section>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-lg-12 col-sm-12 col-md-12">
+                    <table class="table table-bordered">
+                        <thead>
+                          
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Göndərənin adı</th>
+                                <th scope="col">Göndərənin Emaili</th>
+                                <th scope="col">Məktubun içəriyi</th>
+                                <th scope="col">Tarix</th>
+                                <th scope="col">Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var message in Model)
+                            {
+                            <tr>
+                                <th scope="row">@message.Id</th>
+                                <td>@message.FirstName</td>
+                                <td>@message.Email</td>
+                                <td>@Html.Raw(message.Post)</td>
+                                <td>@message.Date</td>
+                                <td>
+                                    <button class="btndelete">
+                                        <a asp-area="admin" asp-controller="message" asp-action="delete" asp-route-id="@message.Id">
+                                            <img src="~/admin/img/delete.svg" alt="">
+                                        </a>
+                                    </button>
+                                </td>
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>

@@ -1,0 +1,79 @@
+﻿@model AllViewModel
+@{
+    ViewData["Title"] = "Haqqımızda | Ekonomiks";
+}
+<section class="sections">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-12 pattern">
+            <p class="patterntext">HAQQIMIZDA</p>
+            <p class="patterntextcrumbs"><a href="/">ANA SƏHİFƏ</a> | <a href="/about/index">HAQQIMIZDA</a></p>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container whitecontainerabout">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <p class="aboutus">Haqqımızda</p>
+                <p class="nameofngo">“Ekonomiks” Beynəlxalq İqtisadi Araşdırmalar İctimai Birliyi</p>
+                <p class="aboutustext">@Model.Abouts.AboutUs</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container whitecontainerabout1">
+        <div class="row">
+            <div class="col-lg-4 col-sm-12 col-md-12">
+                <div class="boardmember">
+                    <img src="~/img/FY.jpg" alt="İdarə Heyətinin Üzvü.jpeg" width="324" height="227" class="boardmemberimages">
+                    <p class="nameofmember">Fikrət Yusifov</p>
+                    <p class="jobtitle">İdarə Heyətinin Sədri</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12 col-md-12">
+                <div class="boardmember">
+                    <img src="~/img/Tale.jpg" alt="İdarə Heyətinin Üzvü.jpeg" width="324" height="227" class="boardmemberimages">
+                    <p class="nameofmember">Tale Həsənov</p>
+                    <p class="jobtitle">İdarə Heyətinin Sədr müavini</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12 col-md-12">
+                <div class="boardmember">
+                    <img src="~/img/BS.jpg" alt="İdarə Heyətinin Üzvü.jpeg" width="324" height="227" class="boardmemberimages">
+                    <p class="nameofmember">Bayram Sadıqov</p>
+                    <p class="jobtitle">İdarə Heyətinin üzvü</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container whitecontainerabout1">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <p class="whatwasdone">Gördüyümüz İşlər</p>
+                <p class="nameofngo">Təşkilat yarandığı vaxtdan bu günədək bir sıra layihələr həyata keçirmişdir</p>
+                <p class="aboutustext mb-5">@Model.Abouts.WhatWasDone</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="sections">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <p class="aboutus">Partnyorlar</p>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 partners">
+                <img src="~/img/MOE.png" alt="Ministry of Economy Logo" class="img-fluid">
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 partners">
+                <img src="~/img/MOEDU.png" alt="Ministry of Education Logo" class="img-fluid">
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 partners">
+                <img src="~/img/MOF.png" alt="Ministry of Finance Logo" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
