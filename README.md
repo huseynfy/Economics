@@ -1,2 +1,3 @@
 # Ekonomiks
-Server side codes of the website for a non-governmental organization located in Baku, Azerbaijan. http://ekonomiks.az
+Server side codes of Economics website. 
+- http://ekonomiks.az
